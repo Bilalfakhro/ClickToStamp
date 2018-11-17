@@ -75,12 +75,12 @@
 			children = (
 				DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */,
 				DB62F4EF21A05EFA00FB5FCD /* Main.storyboard */,
+				DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */,
 				DB62F4ED21A05EFA00FB5FCD /* StampCardViewController.swift */,
 				DB62F4F221A05EFB00FB5FCD /* Assets.xcassets */,
 				DB62F4F421A05EFB00FB5FCD /* LaunchScreen.storyboard */,
 				DB62F4FD21A05FA700FB5FCD /* GoogleService-Info.plist */,
 				DB62F4F721A05EFB00FB5FCD /* Info.plist */,
-				DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */,
 			);
 			path = ClickToStamp;
 			sourceTree = "<group>";

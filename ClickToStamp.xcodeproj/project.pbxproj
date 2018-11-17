@@ -15,6 +15,7 @@
 		DB62F4F621A05EFB00FB5FCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB62F4F421A05EFB00FB5FCD /* LaunchScreen.storyboard */; };
 		DB62F4FE21A05FA700FB5FCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB62F4FD21A05FA700FB5FCD /* GoogleService-Info.plist */; };
 		DB62F50021A0C72B00FB5FCD /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */; };
+		DB62F50221A0DC6300FB5FCD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F50121A0DC6300FB5FCD /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DB62F4F721A05EFB00FB5FCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB62F4FD21A05FA700FB5FCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		DB62F50121A0DC6300FB5FCD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FB1BB49FD69A5488751B5CB4 /* Pods-ClickToStamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClickToStamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClickToStamp/Pods-ClickToStamp.debug.xcconfig"; sourceTree = "<group>"; };
 		FBF682E01C741E0A6538AF66 /* Pods-ClickToStamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClickToStamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClickToStamp/Pods-ClickToStamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			children = (
 				DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */,
 				DB62F4EF21A05EFA00FB5FCD /* Main.storyboard */,
+				DB62F50121A0DC6300FB5FCD /* MainViewController.swift */,
 				DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */,
 				DB62F4ED21A05EFA00FB5FCD /* StampCardViewController.swift */,
 				DB62F4F221A05EFB00FB5FCD /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				DB62F4EE21A05EFA00FB5FCD /* StampCardViewController.swift in Sources */,
 				DB62F4EC21A05EFA00FB5FCD /* AppDelegate.swift in Sources */,
 				DB62F50021A0C72B00FB5FCD /* QRScannerViewController.swift in Sources */,
+				DB62F50221A0DC6300FB5FCD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         // Start video capture.
         captureSession.startRunning()
+        
     }
     
     // If any error occurs, simply print it out and don't continue any more.
@@ -93,12 +94,12 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
-        
         dismiss(animated: true)
     }
     
     func found(code: String) {
-        DispatchQueue.main.async(){
+//        DispatchQueue.main.async()
+        do {
             self.performSegue(withIdentifier: "stampCardSegue", sender: self)
         }
     }

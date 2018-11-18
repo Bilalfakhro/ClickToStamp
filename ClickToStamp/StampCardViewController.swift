@@ -31,30 +31,55 @@ class StampCardViewController: UIViewController {
     @IBOutlet weak var qrScanButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
+    var ref: DatabaseReference!
     
+    var checkImage = UIImage(named: "checkBox")
+    var unCheckImage = UIImage(named: "unCheckBox")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         // Firebase Database Reference
-        var ref: DatabaseReference!
         ref = Database.database().reference()
-   
-ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138901471u41mfaioj").setValue("0")
-ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572975020+rufjkl").setValue("4")
-ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138902u3923").setValue("0")
-ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739573942ur").setValue("3")
-ref.child("userID").child("Valfarden").child("QRNewCard").child("Soppa").child("85409q9598twifjlm").setValue("0")
-ref.child("userID").child("Valfarden").child("QRStampCard").child("Soppa").child("855308520iofkcld").setValue("6")
         
-ref.child("userID").child("Valfarden").child("QRNewCard").child("Soppa").child("85409fjaiojfa9r").setValue("0")
-ref.child("userID").child("Valfarden").child("QRStampCard").child("Soppa").child("85530oireu9rue").setValue("2")
+/*      if let checkImage = UIImage(named: "checkBox.png") {
+            let pngdata = checkImage.pngData()
+        }
+        
+        if let unCheckImage = UIImage(named: "unCheckBox.png") {
+            let pngdata = unCheckImage.pngData()
+    }
+ */
+        
+        // SPARA DATA PÅ FIREBASE
+    ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138901471u41mfaioj").setValue("0")
+    ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572975020+rufjkl").setValue("7")
+        
+    //ref.child("userID").child("Valfarden").child("QRNewCard").child("Soppa").child("85409fjaiojfa9r").setValue("0")
+    //ref.child("userID").child("Valfarden").child("QRStampCard").child("Soppa").child("85530oireu9rue").setValue("2")
+ 
+        // HÄMTA DATA FRÅN FIREBASE
+        // let userID = Auth.auth().currentUser?.uid
+        ref.child("userID").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+           let value = snapshot.value as? NSDictionary
+ 
+            print(value)
+            // let username = value?["username"] as? String ?? ""
+            // let user = User(username: username)
+ 
+            // ...
+        })
+        { (error) in
+            print(error.localizedDescription)
+        }
         
     }
     
     @IBAction func backToMenu(_ sender: UIButton) {
     print("Back to Menu Tapped")
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func profileButtonTapped(_ sender: Any) {

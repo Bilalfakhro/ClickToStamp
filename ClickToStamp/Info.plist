@@ -28,6 +28,8 @@
 	<string>Main</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need to use your camera to scan QR code!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to use your camer to be able to change your  profile picture!</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

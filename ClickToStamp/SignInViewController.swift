@@ -10,6 +10,9 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var emailTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,12 @@ class SignInViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func signInButton(_ sender: UIButton) {
+        print("SignIn button tapped")
+    }
+    @IBAction func dontHaveAccountButton(_ sender: UIButton) {
+        print("Dont have a account button tapped")
     }
     
 

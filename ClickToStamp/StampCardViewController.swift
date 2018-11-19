@@ -33,8 +33,8 @@ class StampCardViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-    var checkImage = UIImage(named: "checkBox")
-    var unCheckImage = UIImage(named: "unCheckBox")
+   // var checkImage = UIImage(named: "checkBox")
+   // var unCheckImage = UIImage(named: "unCheckBox")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,19 @@ class StampCardViewController: UIViewController {
         // Firebase Database Reference
         ref = Database.database().reference()
         
-/*      if let checkImage = UIImage(named: "checkBox.png") {
+        // ENCODING IMAGE
+        let image = UIImage(named: "checkBox.png")
+        let imageData: NSData = image!.pngData()! as NSData
+     
+        // SAVED IMAGE
+        UserDefaults.standard.set(imageData, forKey: "savedImage")
+        
+        // DECODE IMAGE
+        let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+        imageOne.image = UIImage(data: data as! Data)
+ 
+        
+/*      if let checkImage = UIImage(named: "checkBox.png") {Sa
             let pngdata = checkImage.pngData()
         }
         
@@ -51,7 +63,7 @@ class StampCardViewController: UIViewController {
             let pngdata = unCheckImage.pngData()
     }
  */
-        
+   /*
         // SPARA DATA PÅ FIREBASE
     ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138901471u41mfaioj").setValue("0")
     ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572975020+rufjkl").setValue("7")
@@ -74,7 +86,7 @@ class StampCardViewController: UIViewController {
         { (error) in
             print(error.localizedDescription)
         }
-        
+        */
     }
     
     @IBAction func backToMenu(_ sender: UIButton) {

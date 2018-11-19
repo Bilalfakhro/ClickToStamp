@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         // Do any additional setup after loading the view.
     }
     
-    // ActivityIndicator to choose between photoLibary or camera.
+    // ActivityIndicator a view that shows that a task is in progress.
     func addActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(frame: view.bounds)
         activityIndicator.style = .whiteLarge
@@ -42,22 +42,23 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBAction func changePicture(_ sender: Any) {
         let imagePickerSelector = UIAlertController(title: "Select Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            // CAMERA
             let camera = UIAlertAction(title: "Take Photo", style: .default, handler: { (UIAlertAction) in
-                let profileImage = UIImagePickerController()
-                profileImage.delegate = self
-                profileImage.sourceType = .camera
-                profileImage.allowsEditing = true
-                self.present(profileImage, animated: true, completion: nil)
+            let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                self.present(imagePicker, animated: true, completion: nil)
             })
             imagePickerSelector.addAction(camera)
         }
-        
-        let libary = UIAlertAction(title: "Upload from Libary", style: .default, handler: { (UIAlertAction) in
-            let profileImage = UIImagePickerController()
-            profileImage.delegate = self
-            profileImage.sourceType = .photoLibrary
-            profileImage.allowsEditing = true
-            self.present(profileImage, animated: true, completion: nil)
+            // PHOTOLIABRY
+            let libary = UIAlertAction(title: "Upload from Libary", style: .default, handler: { (UIAlertAction) in
+            let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
         })
         imagePickerSelector.addAction(libary)
         
@@ -67,14 +68,27 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         present(imagePickerSelector, animated: true, completion: nil)
     }
     
+    // IMAGE TAKEN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedPhoto = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        addActivityIndicator()
-        dismiss(animated: true, completion: nil)
-        print("Image Saved")
+    
+        let pickedImage = info[.originalImage] as! UIImage
+        profileImage.image = pickedImage
+
+        // CLOSE WINDOWS AFTER TAKEN THE IMAGE
+        self.dismiss(animated: true, completion: nil)
+  /*
+        // ENCODING IMAGE
+        let image = UIImage(named: "profileImage")
+        let imageData: NSData = image!.pngData()! as NSData
+    */
+        // SAVED IMAGE
+        UserDefaults.standard.set(pickedImage, forKey: "savedImage")
+        
+        // DECODE IMAGE
+        let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+        profileImage.image = UIImage(data: data as Data)
     }
 
-    
     // BACK HOME
     @IBAction func profileBackHome(_ sender: Any){
         self.dismiss(animated: false, completion: nil)

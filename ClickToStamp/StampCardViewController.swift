@@ -33,9 +33,6 @@ class StampCardViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-   // var checkImage = UIImage(named: "checkBox")
-   // var unCheckImage = UIImage(named: "unCheckBox")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -52,17 +49,8 @@ class StampCardViewController: UIViewController {
         
         // DECODE IMAGE
         let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
-        imageOne.image = UIImage(data: data as! Data)
+        imageOne.image = UIImage(data: data as Data)
  
-        
-/*      if let checkImage = UIImage(named: "checkBox.png") {Sa
-            let pngdata = checkImage.pngData()
-        }
-        
-        if let unCheckImage = UIImage(named: "unCheckBox.png") {
-            let pngdata = unCheckImage.pngData()
-    }
- */
    /*
         // SPARA DATA PÅ FIREBASE
     ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138901471u41mfaioj").setValue("0")

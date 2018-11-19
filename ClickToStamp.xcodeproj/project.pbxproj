@@ -10,8 +10,9 @@
 		0241799CA6164AF4AFA5520D /* Pods_ClickToStamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2CBE831EC0012C3AE93CD6 /* Pods_ClickToStamp.framework */; };
 		DB2C62BC21A0E3DD00E70D11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C62BB21A0E3DD00E70D11 /* ProfileViewController.swift */; };
 		DB2C62BE21A0EBEB00E70D11 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C62BD21A0EBEB00E70D11 /* ProfileChangeViewController.swift */; };
-		DB2C62C021A1F30200E70D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C62BF21A1F30200E70D11 /* SignInViewController.swift */; };
-		DB2C62C221A22B2C00E70D11 /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2C62C121A22B2C00E70D11 /* checkBox.png */; };
+		DB2C62C421A2B0C100E70D11 /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2C62C321A2B0C100E70D11 /* checkBox.png */; };
+		DB2C62C621A30E7D00E70D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C62C521A30E7D00E70D11 /* SignUpViewController.swift */; };
+		DB2C62C821A30FC900E70D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C62C721A30FC900E70D11 /* SignInViewController.swift */; };
 		DB62F4EC21A05EFA00FB5FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */; };
 		DB62F4EE21A05EFA00FB5FCD /* StampCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F4ED21A05EFA00FB5FCD /* StampCardViewController.swift */; };
 		DB62F4F121A05EFA00FB5FCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB62F4EF21A05EFA00FB5FCD /* Main.storyboard */; };
@@ -26,8 +27,9 @@
 		5F2CBE831EC0012C3AE93CD6 /* Pods_ClickToStamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClickToStamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2C62BB21A0E3DD00E70D11 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB2C62BD21A0EBEB00E70D11 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
-		DB2C62BF21A1F30200E70D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		DB2C62C121A22B2C00E70D11 /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
+		DB2C62C321A2B0C100E70D11 /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
+		DB2C62C521A30E7D00E70D11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		DB2C62C721A30FC900E70D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DB62F4E821A05EFA00FB5FCD /* ClickToStamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClickToStamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB62F4ED21A05EFA00FB5FCD /* StampCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampCardViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +87,8 @@
 			children = (
 				DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */,
 				DB62F4EF21A05EFA00FB5FCD /* Main.storyboard */,
-				DB2C62BF21A1F30200E70D11 /* SignInViewController.swift */,
+				DB2C62C721A30FC900E70D11 /* SignInViewController.swift */,
+				DB2C62C521A30E7D00E70D11 /* SignUpViewController.swift */,
 				DB62F50121A0DC6300FB5FCD /* MainViewController.swift */,
 				DB2C62BB21A0E3DD00E70D11 /* ProfileViewController.swift */,
 				DB2C62BD21A0EBEB00E70D11 /* ProfileChangeViewController.swift */,
@@ -95,7 +98,7 @@
 				DB62F4F421A05EFB00FB5FCD /* LaunchScreen.storyboard */,
 				DB62F4FD21A05FA700FB5FCD /* GoogleService-Info.plist */,
 				DB62F4F721A05EFB00FB5FCD /* Info.plist */,
-				DB2C62C121A22B2C00E70D11 /* checkBox.png */,
+				DB2C62C321A2B0C100E70D11 /* checkBox.png */,
 			);
 			path = ClickToStamp;
 			sourceTree = "<group>";
@@ -169,10 +172,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2C62C421A2B0C100E70D11 /* checkBox.png in Resources */,
 				DB62F4F621A05EFB00FB5FCD /* LaunchScreen.storyboard in Resources */,
 				DB62F4FE21A05FA700FB5FCD /* GoogleService-Info.plist in Resources */,
 				DB62F4F321A05EFB00FB5FCD /* Assets.xcassets in Resources */,
-				DB2C62C221A22B2C00E70D11 /* checkBox.png in Resources */,
 				DB62F4F121A05EFA00FB5FCD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,10 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB2C62C021A1F30200E70D11 /* SignInViewController.swift in Sources */,
 				DB2C62BE21A0EBEB00E70D11 /* ProfileChangeViewController.swift in Sources */,
+				DB2C62C621A30E7D00E70D11 /* SignUpViewController.swift in Sources */,
 				DB62F4EE21A05EFA00FB5FCD /* StampCardViewController.swift in Sources */,
 				DB62F4EC21A05EFA00FB5FCD /* AppDelegate.swift in Sources */,
+				DB2C62C821A30FC900E70D11 /* SignInViewController.swift in Sources */,
 				DB2C62BC21A0E3DD00E70D11 /* ProfileViewController.swift in Sources */,
 				DB62F50021A0C72B00FB5FCD /* QRScannerViewController.swift in Sources */,
 				DB62F50221A0DC6300FB5FCD /* MainViewController.swift in Sources */,

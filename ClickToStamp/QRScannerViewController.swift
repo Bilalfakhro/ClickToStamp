@@ -98,9 +98,9 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     func found(code: String) {
-//        DispatchQueue.main.async()
+ //      DispatchQueue.main.async()
         do {
-            self.performSegue(withIdentifier: "stampCardSegue", sender: self)
+        //    self.performSegue(withIdentifier: "stampCardSegue", sender: self)
         }
     }
     

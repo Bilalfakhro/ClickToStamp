@@ -14,31 +14,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileNameTextfield: UITextField!
     @IBOutlet weak var profileEmailTextfield: UITextField!
-    @IBOutlet weak var profileCityTextfield: UITextField!
-    @IBOutlet weak var profileGenderTextfield: UITextField!
-    
-    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    // ActivityIndicator a view that shows that a task is in progress.
-    func addActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        activityIndicator.style = .whiteLarge
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-    }
-    
-    // Remove the ActivityIndicator
-    func removeActivityIndicator() {
-        activityIndicator.removeFromSuperview()
-        activityIndicator = nil
-    }
-    
+ 
     @IBAction func changePicture(_ sender: Any) {
         let imagePickerSelector = UIAlertController(title: "Select Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -76,11 +57,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 
         // CLOSE WINDOWS AFTER TAKEN THE IMAGE
         self.dismiss(animated: true, completion: nil)
-  /*
+
         // ENCODING IMAGE
         let image = UIImage(named: "profileImage")
         let imageData: NSData = image!.pngData()! as NSData
-    */
+ 
         // SAVED IMAGE
         UserDefaults.standard.set(pickedImage, forKey: "savedImage")
         
@@ -88,6 +69,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
         profileImage.image = UIImage(data: data as Data)
     }
+ 
 
     // BACK HOME
     @IBAction func profileBackHome(_ sender: Any){

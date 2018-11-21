@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     
     // Settings Buttons on MainViewController
     @IBAction func settingsButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "settingsSegue", sender: self)
+        self.performSegue(withIdentifier: "mainToSettingsSegue", sender: self)
     }
     
     @IBAction func logoutButton(_ sender: Any) {

@@ -63,9 +63,7 @@ class SignInViewController: UIViewController {
             print(error)
         })
     }
-    @IBAction func dontHaveAccountButton(_ sender: UIButton) {
-        print("Dont have a account button tapped")
-    }
     
-
+    @IBAction func dontHaveAccountButton(_ sender: UIButton) {
+    }
 }

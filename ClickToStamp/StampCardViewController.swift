@@ -31,45 +31,29 @@ class StampCardViewController: UIViewController {
     @IBOutlet weak var qrScanButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
+    @IBOutlet weak var testLabel: UILabel!
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // Firebase Database Reference
-        ref = Database.database().reference()
-        /*
-        // ENCODING IMAGE
-        let image = UIImage(named: "checkBox.png")
-        let imageData: NSData = image!.pngData()! as NSData
-     
-        // SAVED IMAGE
-        UserDefaults.standard.set(imageData, forKey: "savedImage")
-        
-        // DECODE IMAGE
-        let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
-        imageOne.image = UIImage(data: data as Data)
-         */
-        
-        // SPARA DATA PÅ FIREBASE
-    ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("8091389").setValue("0")
-    ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572").setValue("7")
 
-        // HÄMTA DATA FRÅN FIREBASE
-        // let userID = Auth.auth().currentUser?.uid
-        ref.child("userID").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-           let value = snapshot.value as? NSDictionary
- 
-            print(value)
-            // let username = value?["username"] as? String ?? ""
-            // let user = User(username: username)
- 
-            // ...
-        })
-        { (error) in
-            print(error.localizedDescription)
+        ref = Database.database().reference()
+
+        downloadBox()
+        
+//        var stampcard = StampCard(EmailText: "test", FullNameText: "test 3")
+//        print(stampcard.Email)
+//        print(stampcard.FullName)
+    }
+    
+    func downloadBox() {
+        Database.database().reference().child("Users").observe(.value) { (DataSnapshot) in
+            // EXTRACT DATA FROM DATASNAPSHOT
+            if let dict = DataSnapshot.value as? [String: Any] {
+                print(DataSnapshot.value!)
+            }
+           // print(DataSnapshot.value!)
         }
     }
     

@@ -21,6 +21,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GMO-k0-yyF"/>
                     </view>
+                    <connections>
+                        <segue destination="KYp-MQ-N8t" kind="presentation" identifier="stampCardSegue" animates="NO" id="4D7-nd-LZn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qK-xv-CNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -951,6 +954,13 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rw-74-PoE">
+                                <rect key="frame" x="99" y="698" width="224" height="109"/>
+                                <color key="backgroundColor" red="1" green="0.83209832080000001" blue="0.12563552589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -964,6 +974,8 @@
                             <constraint firstItem="huD-RW-UJj" firstAttribute="top" secondItem="rpL-Gg-myO" secondAttribute="top" constant="16" id="Ezm-cW-1H1"/>
                             <constraint firstItem="2xL-LP-tX9" firstAttribute="top" secondItem="ldM-WJ-aCh" secondAttribute="bottom" constant="36" id="JjK-zK-YWK"/>
                             <constraint firstItem="rpL-Gg-myO" firstAttribute="trailing" secondItem="cav-O0-9vW" secondAttribute="trailing" constant="125" id="KVf-yg-DEM"/>
+                            <constraint firstItem="1rw-74-PoE" firstAttribute="top" secondItem="gWx-dH-2tO" secondAttribute="bottom" constant="60" id="Kmp-gT-t1K"/>
+                            <constraint firstItem="rpL-Gg-myO" firstAttribute="trailing" secondItem="1rw-74-PoE" secondAttribute="trailing" constant="91" id="LWF-Yx-X5X"/>
                             <constraint firstAttribute="bottom" secondItem="Gkk-5H-zxt" secondAttribute="bottom" id="NaG-Bn-lz8"/>
                             <constraint firstItem="rpL-Gg-myO" firstAttribute="trailing" secondItem="gWx-dH-2tO" secondAttribute="trailing" constant="67" id="Qac-Di-BnV"/>
                             <constraint firstItem="rpL-Gg-myO" firstAttribute="trailing" secondItem="ldM-WJ-aCh" secondAttribute="trailing" constant="200" id="Rsl-rq-Q3C"/>
@@ -973,8 +985,10 @@
                             <constraint firstItem="rpL-Gg-myO" firstAttribute="trailing" secondItem="2xL-LP-tX9" secondAttribute="trailing" constant="99" id="auJ-bg-QXq"/>
                             <constraint firstItem="Gkk-5H-zxt" firstAttribute="trailing" secondItem="rpL-Gg-myO" secondAttribute="trailing" id="aw5-oy-0UD"/>
                             <constraint firstItem="2xL-LP-tX9" firstAttribute="leading" secondItem="rpL-Gg-myO" secondAttribute="leading" constant="99" id="cMI-kL-Ekb"/>
+                            <constraint firstItem="1rw-74-PoE" firstAttribute="leading" secondItem="rpL-Gg-myO" secondAttribute="leading" constant="99" id="o0h-iM-YFF"/>
                             <constraint firstItem="cav-O0-9vW" firstAttribute="top" secondItem="rpL-Gg-myO" secondAttribute="top" constant="16" id="oo2-gA-KMw"/>
                             <constraint firstItem="gWx-dH-2tO" firstAttribute="top" secondItem="Agb-71-JFI" secondAttribute="bottom" constant="118" id="v8C-BC-jNL"/>
+                            <constraint firstItem="rpL-Gg-myO" firstAttribute="bottom" secondItem="1rw-74-PoE" secondAttribute="bottom" constant="55" id="wN1-1C-tcj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rpL-Gg-myO"/>
                     </view>
@@ -996,6 +1010,7 @@
                         <outlet property="qrScanButton" destination="4PE-3r-9cH" id="hgq-rH-MZG"/>
                         <outlet property="settingsButton" destination="Qdj-ir-Fn1" id="Mg7-BQ-2G5"/>
                         <outlet property="stampCardViewLabel" destination="LMU-JA-OuO" id="fv6-XK-ln4"/>
+                        <outlet property="testLabel" destination="1rw-74-PoE" id="RGW-IG-6eE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBo-Vf-a3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1146,6 +1161,8 @@
                             <outlet property="delegate" destination="bwI-Sg-v4r" id="2IT-e5-PdU"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="LUv-7f-2dG" kind="presentation" identifier="settingsToTableViewSegue" animates="NO" id="f1Z-gH-S13"/>
                     </connections>
@@ -1170,9 +1187,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b6B-pp-1QD"/>
-        <segue reference="3XP-Mj-yuY"/>
-        <segue reference="QFo-M8-rRM"/>
+        <segue reference="6uY-UP-Cou"/>
+        <segue reference="9GY-3Z-llc"/>
         <segue reference="mwV-gu-xiB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,7 +17,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.black
+        //view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video)
@@ -94,14 +94,18 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
-        dismiss(animated: true)
+        // SHOOT DOWN CAMERA AND SEGUE TO STAMPCARD VIEW
+        dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "stampCardSegue", sender: self)
+        })
     }
     
     func found(code: String) {
- //      DispatchQueue.main.async()
+       //DispatchQueue.main.async()
         do {
-        //    self.performSegue(withIdentifier: "stampCardSegue", sender: self)
+           //self.performSegue(withIdentifier: "stampCardSegue", sender: self)
         }
+        print("No camera")
     }
     
     override var prefersStatusBarHidden: Bool {

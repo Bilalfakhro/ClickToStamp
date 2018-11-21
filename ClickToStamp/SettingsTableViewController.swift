@@ -36,7 +36,6 @@ class SettingsTableViewController: UITableViewController {
         performSegue(withIdentifier: "settingsToTableViewSegue", sender: self)
     }
     @IBAction func backToHome(_ sender: Any) {
-        print("Back to home")
         performSegue(withIdentifier: "backToMenuSegue", sender: self)
     }
 }

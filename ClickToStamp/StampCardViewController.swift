@@ -27,7 +27,7 @@ class StampCardViewController: UIViewController {
     @IBOutlet weak var imageNine: UIImageView!
     @IBOutlet weak var imageTen: UIImageView!
 
-    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var qrScanButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
@@ -39,7 +39,7 @@ class StampCardViewController: UIViewController {
         
         // Firebase Database Reference
         ref = Database.database().reference()
-        
+        /*
         // ENCODING IMAGE
         let image = UIImage(named: "checkBox.png")
         let imageData: NSData = image!.pngData()! as NSData
@@ -50,15 +50,12 @@ class StampCardViewController: UIViewController {
         // DECODE IMAGE
         let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
         imageOne.image = UIImage(data: data as Data)
- 
-   /*
-        // SPARA DATA PÅ FIREBASE
-    ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("809138901471u41mfaioj").setValue("0")
-    ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572975020+rufjkl").setValue("7")
+         */
         
-    //ref.child("userID").child("Valfarden").child("QRNewCard").child("Soppa").child("85409fjaiojfa9r").setValue("0")
-    //ref.child("userID").child("Valfarden").child("QRStampCard").child("Soppa").child("85530oireu9rue").setValue("2")
- 
+        // SPARA DATA PÅ FIREBASE
+    ref.child("userID").child("Valfarden").child("QRNewCard").child("Lunch").child("8091389").setValue("0")
+    ref.child("userID").child("Valfarden").child("QRStampCard").child("Lunch").child("852739572").setValue("7")
+
         // HÄMTA DATA FRÅN FIREBASE
         // let userID = Auth.auth().currentUser?.uid
         ref.child("userID").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -74,20 +71,18 @@ class StampCardViewController: UIViewController {
         { (error) in
             print(error.localizedDescription)
         }
-        */
     }
     
     @IBAction func backToMenu(_ sender: UIButton) {
-    print("Back to Menu Tapped")
         self.performSegue(withIdentifier: "backToMenuSegue", sender: self)
     }
     
-    @IBAction func cardImageButtonTapped(_ sender: Any) {
-        print("Profile Button Tapped")
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "cardToSettingsSegue", sender: self)
     }
     
     @IBAction func qrScanButtonTapped(_ sender: Any) {
-        print("QR Scan Button Tapped")
+        self.performSegue(withIdentifier: "cardToQRSegue", sender: self)
     }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {

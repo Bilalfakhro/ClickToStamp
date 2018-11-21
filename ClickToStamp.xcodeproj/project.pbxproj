@@ -21,6 +21,7 @@
 		DB62F50021A0C72B00FB5FCD /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */; };
 		DB62F50221A0DC6300FB5FCD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62F50121A0DC6300FB5FCD /* MainViewController.swift */; };
 		DBF289D921A55F45001A438D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF289D821A55F45001A438D /* SettingsTableViewController.swift */; };
+		DBF289DB21A5D28A001A438D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF289DA21A5D28A001A438D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DB62F4FF21A0C72B00FB5FCD /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		DB62F50121A0DC6300FB5FCD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DBF289D821A55F45001A438D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		DBF289DA21A5D28A001A438D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FB1BB49FD69A5488751B5CB4 /* Pods-ClickToStamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClickToStamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClickToStamp/Pods-ClickToStamp.debug.xcconfig"; sourceTree = "<group>"; };
 		FBF682E01C741E0A6538AF66 /* Pods-ClickToStamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClickToStamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClickToStamp/Pods-ClickToStamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		DB62F4EA21A05EFA00FB5FCD /* ClickToStamp */ = {
 			isa = PBXGroup;
 			children = (
+				DBF289DC21A5D293001A438D /* Files */,
 				DB62F4EB21A05EFA00FB5FCD /* AppDelegate.swift */,
 				DB62F4EF21A05EFA00FB5FCD /* Main.storyboard */,
 				DB2C62C721A30FC900E70D11 /* SignInViewController.swift */,
@@ -101,6 +104,14 @@
 				DB2C62C321A2B0C100E70D11 /* checkBox.png */,
 			);
 			path = ClickToStamp;
+			sourceTree = "<group>";
+		};
+		DBF289DC21A5D293001A438D /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				DBF289DA21A5D28A001A438D /* AuthService.swift */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		E76EFE245CB0BBA9F6F7F221 /* Pods */ = {
@@ -245,6 +256,7 @@
 				DB62F4EC21A05EFA00FB5FCD /* AppDelegate.swift in Sources */,
 				DB2C62C821A30FC900E70D11 /* SignInViewController.swift in Sources */,
 				DB62F50021A0C72B00FB5FCD /* QRScannerViewController.swift in Sources */,
+				DBF289DB21A5D28A001A438D /* AuthService.swift in Sources */,
 				DB53949321A450380083EC2E /* TableViewController.swift in Sources */,
 				DB62F50221A0DC6300FB5FCD /* MainViewController.swift in Sources */,
 				DBF289D921A55F45001A438D /* SettingsTableViewController.swift in Sources */,

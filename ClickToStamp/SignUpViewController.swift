@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseStorage
-import FirebaseDatabase
+import Firebase
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -21,17 +19,25 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // SIGN UP BUTTON I DISABLE AT VIEW APPEAR
+        signUpButton.isEnabled = false
+        // TEXTFIELDS IS EMPTY FUNCTION
         handleTextField()
     }
     
-    // TEXTFIELDS IF EMPTY, TURN BUTTON TO UNCLICKABLE
+    // KEYBOARD DISMISS ONCLICK ANYWHERE
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    // EMPTY TEXTFIELDS , SIGN UP BUTTON DISABALD
     func handleTextField() {
         fullNameTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextfield.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextfield.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
-    // IF TEXTFIELDS IS EMPTY, COLLOR CHANGE TO DARKER COLOR SIGNUP BUTTON IS NOT CLICKABLE
+    // IF TEXTFIELDS IS EMPTY, CHANGE BUTTON TO DISABLE AND GIVE IT A LIGHTER COLOR
     @objc func textFieldDidChange() {
         guard let fullname = fullNameTextfield.text, !fullname.isEmpty, let email = emailTextfield.text, !email.isEmpty,
             let password = passwordTextfield.text, !password.isEmpty else {
@@ -39,14 +45,31 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
                 signUpButton.isEnabled = false
                 return
         }
-        // CHANGE BUTTONS COLLOR TO DEFAULT COLOR AND IS CLICKABLE
-        signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        // WHEN TEXTFIELDS IS FILED THE SIGN UP BUTTON IS ENABELD
+        signUpButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         signUpButton.isEnabled = true
     }
 
     // FIREBASE - UPPLOAD AND SAVE DATATO USER AND USERS ID AND EMAIL AND PROFILEIMAGE
-    @IBAction func signUpButton(_ sender: Any) {
-      print("Sign up button tapped")
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        view.endEditing(true)
+        Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!, completion:{ (user, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            // FIREBASE STORAGE
+            let uid = user?.user.uid
+            let storageRef = Storage.storage().reference(forURL: "gs://clicktostamp.appspot.com").child("Images").child(uid!)
+            
+            // FIREBASE DATABASE
+            let ref = Database.database().reference()
+            let usersReference = ref.child("Users")
+            //   print(usersReference.description()) : https://clicktostamp.firebaseio.com/Users
+            let newUserReference = usersReference.child(uid!)
+            newUserReference.setValue(["Full Name": self.fullNameTextfield.text!, "Email": self.emailTextfield.text!, "Password": self.passwordTextfield.text!])
+            self.performSegue(withIdentifier: "signUpToCardSegue", sender: self)
+        })
     }
     
     @IBAction func dismiss_onClick(_ sender: Any) {

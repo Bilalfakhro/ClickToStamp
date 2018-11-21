@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var qrScanner: UIButton!
-    @IBOutlet weak var profile: UIButton!
+    @IBOutlet weak var cardImage: UIButton!
     @IBOutlet weak var settings: UIButton!
-    @IBOutlet weak var loggout: UIButton!
+    @IBOutlet weak var logOut: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class MainViewController: UIViewController {
     }
     
     // Profile Buttons on MainViewController
-    @IBAction func cardImageButton(_ sender: Any) {
+    @IBAction func cardImageButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "cardImageSegue", sender: self)
     }
     
@@ -35,27 +37,15 @@ class MainViewController: UIViewController {
         self.performSegue(withIdentifier: "mainToSettingsSegue", sender: self)
     }
     
-    @IBAction func logoutButton(_ sender: Any) {
-      /*  let signOutController = SignInViewController()
-        let signInNavigationController = UINavigationController(rootViewController: signOutController)
-        
-        let alert = UIAlertController(title: "My Title", message: "My Message", preferredStyle: .alert)
-        
-        let actionYes = UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("action yes handler")
-        })
-        
-        let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { action in
-            print("action cancel handler")
-        })
-        
-        alert.addAction(actionYes)
-        alert.addAction(actionCancel)
-        
-        DispatchQueue.main.async {
-            self.present(signInNavigationController, animated: true, completion: nil)
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
         }
-         */
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+        self.present(signInVC, animated: false, completion: nil)
         
     }
 }

@@ -82,7 +82,7 @@ class StampCardViewController: UIViewController {
         self.performSegue(withIdentifier: "backToMenuSegue", sender: self)
     }
     
-    @IBAction func profileButtonTapped(_ sender: Any) {
+    @IBAction func cardImageButtonTapped(_ sender: Any) {
         print("Profile Button Tapped")
     }
     
@@ -91,7 +91,14 @@ class StampCardViewController: UIViewController {
     }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
-        print("LogOut Button Tapped")
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+        self.present(signInVC, animated: false, completion: nil)
     }
     
     

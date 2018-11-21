@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KYp-MQ-N8t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jij-xT-t0b">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -161,7 +161,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="profileButton:" destination="DcG-lW-AXj" eventType="touchUpInside" id="qvb-Ar-pPV"/>
+                                                            <action selector="cardImageButtonTapped:" destination="DcG-lW-AXj" eventType="touchUpInside" id="xHE-NA-Ssr"/>
                                                             <segue destination="KYp-MQ-N8t" kind="presentation" identifier="cardImageSegue" animates="NO" id="QFo-M8-rRM"/>
                                                         </connections>
                                                     </button>
@@ -207,7 +207,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="logoutButton:" destination="DcG-lW-AXj" eventType="touchUpInside" id="1rR-cz-28i"/>
+                                                            <action selector="logOutButtonTapped:" destination="DcG-lW-AXj" eventType="touchUpInside" id="oQj-mF-gzf"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -263,8 +263,8 @@
                         <viewLayoutGuide key="safeArea" id="kWd-94-gdE"/>
                     </view>
                     <connections>
-                        <outlet property="loggout" destination="2eg-cu-yzY" id="7gP-JD-sFY"/>
-                        <outlet property="profile" destination="suX-IF-6NG" id="zmF-se-eLW"/>
+                        <outlet property="cardImage" destination="suX-IF-6NG" id="2c5-rO-jBT"/>
+                        <outlet property="logOut" destination="2eg-cu-yzY" id="RJn-Kk-vqH"/>
                         <outlet property="qrScanner" destination="G2M-G9-fQd" id="olA-FG-mUd"/>
                         <outlet property="settings" destination="lHf-ai-B35" id="gDC-JE-ERn"/>
                     </connections>
@@ -418,7 +418,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvJ-xT-3eM">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvJ-xT-3eM">
                                         <rect key="frame" x="0.0" y="150" width="374" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -440,7 +440,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signUpButton:" destination="80G-kT-mpc" eventType="touchUpInside" id="PSG-ie-rao"/>
+                                            <action selector="signUpButtonTapped:" destination="80G-kT-mpc" eventType="touchUpInside" id="SuR-aM-LIs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -478,6 +478,7 @@
                         <outlet property="fullNameTextfield" destination="Irs-ww-3QZ" id="ISN-CC-SsB"/>
                         <outlet property="passwordTextfield" destination="AcP-ev-4Ib" id="zVN-tR-qx1"/>
                         <outlet property="signUpButton" destination="uvJ-xT-3eM" id="BNk-an-V9I"/>
+                        <segue destination="KYp-MQ-N8t" kind="presentation" identifier="signUpToCardSegue" animates="NO" id="9GY-3Z-llc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTt-JF-Crk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -871,7 +872,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xar-gO-c0c">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdj-ir-Fn1" userLabel="Profile">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdj-ir-Fn1" userLabel="Card Image">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 <color key="backgroundColor" red="0.94815510510000001" green="0.69403535130000005" blue="0.26650303600000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" image="cardImage"/>
@@ -881,7 +882,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="profileButtonTapped:" destination="KYp-MQ-N8t" eventType="touchUpInside" id="DCO-jF-A0d"/>
+                                                    <action selector="cardImageButtonTapped:" destination="KYp-MQ-N8t" eventType="touchUpInside" id="SDA-Pl-IQk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -926,8 +927,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-VS-FYp" userLabel="Logout">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" red="0.25813907384872437" green="0.5315014123916626" blue="0.83533257246017456" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" image="log-out"/>
+                                                <state key="normal" image="logout"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="27"/>
@@ -1003,7 +1003,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="uud-QQ-4P1">
             <objects>
-                <viewController id="jij-xT-t0b" customClass="SignInViewController" customModule="ClickToStamp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="jij-xT-t0b" customClass="SignInViewController" customModule="ClickToStamp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Z3-Hi-5Z3"/>
                         <viewControllerLayoutGuide type="bottom" id="9b7-c8-2Xe"/>
@@ -1058,7 +1058,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signInButton:" destination="jij-xT-t0b" eventType="touchUpInside" id="Z9w-vI-tdU"/>
+                                            <action selector="signInButtonTapped:" destination="jij-xT-t0b" eventType="touchUpInside" id="GZ1-BW-3v1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1104,6 +1104,8 @@
                     <connections>
                         <outlet property="emailTextfield" destination="9Kx-gs-zAn" id="GE6-gq-H8b"/>
                         <outlet property="passwordTextfield" destination="Klp-Kc-Rk1" id="aVf-gk-v7M"/>
+                        <outlet property="signInButton" destination="hvL-7F-vEK" id="YuW-CF-CsB"/>
+                        <segue destination="KYp-MQ-N8t" kind="presentation" identifier="signInToCardSegue" animates="NO" id="wOD-FG-1g1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUM-lu-NOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1114,10 +1116,11 @@
         <scene sceneID="RwT-dk-FVj">
             <objects>
                 <tableViewController id="bwI-Sg-v4r" customClass="SettingsTableViewController" customModule="ClickToStamp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" estimatedSectionFooterHeight="1" id="rZK-kh-tL3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" estimatedSectionFooterHeight="1" id="rZK-kh-tL3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexColor" name="TextColor"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V1C-oH-Jza">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -1131,7 +1134,7 @@
                                 <rect key="frame" x="0.0" y="81" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mQn-xG-w6n" id="y32-Kc-rLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1155,6 +1158,7 @@
         <image name="blue" width="374" height="250"/>
         <image name="cardImage" width="100" height="67"/>
         <image name="log-out" width="200" height="200"/>
+        <image name="logout" width="211" height="209"/>
         <image name="menu-logo" width="99" height="99"/>
         <image name="qr-code" width="94.117645263671875" height="94.117645263671875"/>
         <image name="settings" width="100" height="100"/>
@@ -1165,6 +1169,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6uY-UP-Cou"/>
+        <segue reference="wOD-FG-1g1"/>
         <segue reference="eSQ-RV-Zb3"/>
     </inferredMetricsTieBreakers>
 </document>

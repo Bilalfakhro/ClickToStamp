@@ -26,8 +26,8 @@ class MainViewController: UIViewController {
     }
     
     // Profile Buttons on MainViewController
-    @IBAction func profileButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "profileSegue", sender: self)
+    @IBAction func cardImageButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "cardImageSegue", sender: self)
     }
     
     // Settings Buttons on MainViewController

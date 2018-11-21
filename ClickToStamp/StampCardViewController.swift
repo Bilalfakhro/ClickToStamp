@@ -79,7 +79,7 @@ class StampCardViewController: UIViewController {
     
     @IBAction func backToMenu(_ sender: UIButton) {
     print("Back to Menu Tapped")
-        self.dismiss(animated: false, completion: nil)
+        self.performSegue(withIdentifier: "backToMenuSegue", sender: self)
     }
     
     @IBAction func profileButtonTapped(_ sender: Any) {

@@ -16,7 +16,7 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = label[myIndex]
+        titleLabel.text = labelItems[myIndex]
         titelTextLabel.text = theItems[myIndex]
     }
     

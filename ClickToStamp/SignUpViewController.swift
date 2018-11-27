@@ -34,8 +34,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     // EMPTY TEXTFIELDS , SIGN UP BUTTON DISABALD
     func handleTextField() {
         fullNameTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailTextfield.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextfield.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextfield.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     // IF TEXTFIELDS IS EMPTY, CHANGE BUTTON TO DISABLE AND GIVE IT A LIGHTER COLOR
     @objc func textFieldDidChange() {
@@ -58,16 +58,13 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
                 print(error!.localizedDescription)
                 return
             }
-            // FIREBASE STORAGE
-            let uid = user?.user.uid
-            let storageRef = Storage.storage().reference(forURL: "gs://clicktostamp.appspot.com").child("Images").child(uid!)
-            
             // FIREBASE DATABASE
+            let uid = user?.user.uid
             let ref = Database.database().reference()
             let usersReference = ref.child("Users")
             //   print(usersReference.description()) : https://clicktostamp.firebaseio.com/Users
             let newUserReference = usersReference.child(uid!)
-            newUserReference.setValue(["Full Name": self.fullNameTextfield.text!, "Email": self.emailTextfield.text!, "Password": self.passwordTextfield.text!])
+            newUserReference.setValue(["Name": self.fullNameTextfield.text!, "Email": self.emailTextfield.text!])
             self.performSegue(withIdentifier: "signUpToCardSegue", sender: self)
         })
     }

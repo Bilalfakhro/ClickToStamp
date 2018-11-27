@@ -8,7 +8,7 @@
 
 import UIKit
 
-var label = ["Privacy Policy", "Deactivate", "App Version", "Feedback / Contact Us", "Logout"]
+var labelItems = ["Privacy Policy", "Deactivate", "App Version", "Feedback / Contact Us", "Logout"]
 var theItems = ["blalala", "hohooh", "hfkaafalmlfm", "jfgaspiojfoewjfo", "angakngaenoamfl"]
 var myIndex = 0
 
@@ -16,13 +16,13 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return label.count
+        return labelItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = label[indexPath.row]
+        cell.textLabel?.text = labelItems[indexPath.row]
       /*
         // Change background Color to trasparent
         cell.layer.backgroundColor = UIColor.clear.cgColor

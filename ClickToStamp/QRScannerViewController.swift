@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import Foundation
 import AVFoundation
+import Firebase
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    var code = ("00.00.00.x")
+    var newQRCode = String("valfarden.se")
+    
+    var ref : DatabaseReference!
+    var userRef : DatabaseReference!
+    var restuarantsRef : DatabaseReference!
+    var lunchRef : DatabaseReference!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let uid = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+        userRef = self.ref.child("Users").child(uid!)
+        restuarantsRef = self.userRef.child("Valfarden")
+        lunchRef = self.restuarantsRef.child("Lunch")
         
         //view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
@@ -23,7 +40,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video)
             else {
                 return
-        }
+                }
         let videoInput: AVCaptureDeviceInput
         
         do {
@@ -45,7 +62,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             captureSession.addOutput(metadataOutput)
             
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.qr, .ean8, .ean13, .pdf417]
+            metadataOutput.metadataObjectTypes = [.qr, .ean8, .ean13]
         } else {
             failed()
             return
@@ -58,7 +75,6 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         // Start video capture.
         captureSession.startRunning()
-        
     }
     
     // If any error occurs, simply print it out and don't continue any more.
@@ -92,22 +108,42 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
+            addStamp(newQRCode: stringValue)
         }
-        // SHOOT DOWN CAMERA AND SEGUE TO STAMPCARD VIEW
-        dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "stampCardSegue", sender: self)
-        })
     }
     
-    func found(code: String) {
-       //DispatchQueue.main.async()
+    func addStamp(newQRCode: String) {
+
+        let newQRCode: String = "valfarden.se"
+        // CHECK IF USER LOGGED IN
+        if Auth.auth().currentUser?.uid == nil {
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        } else {
+            self.restuarantsRef.observe(.value, with: { (snapshot) in
+                if newQRCode == nil {
+                    self.failed()
+                    } else {
+                    self.lunchRef.setValue("9")
+                    }
+                //print(newQRCode)
+               // self.performSegue(withIdentifier: "qrToCardSegue", sender: self)
+            })
+        }
+        
+//        self.dismiss(animated: true, completion: nil)
+        }
+    
+    // HANDLE LOGOUT AND GO BACK TO SIGN IN VIEWCONTROLLER
+    @objc func handleLogout() {
         do {
-           //self.performSegue(withIdentifier: "stampCardSegue", sender: self)
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
         }
-        print("No camera")
+        let signInController = SignInViewController()
+        present(signInController, animated: false, completion: nil)
     }
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -115,4 +151,5 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
 }

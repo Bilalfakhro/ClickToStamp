@@ -123,7 +123,15 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                 if newQRCode == nil {
                     self.failed()
                     } else {
-                    self.lunchRef.setValue("9")
+                    self.restuarantsRef.observeSingleEvent(of: DataEventType, with: {
+                        antal
+                        
+                        antal = antal -1
+                        
+                        self.lunchRef.setValue(antal)
+                        dismiss(animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+                    })
+                    
                     }
                 //print(newQRCode)
                // self.performSegue(withIdentifier: "qrToCardSegue", sender: self)
